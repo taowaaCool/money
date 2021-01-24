@@ -1,5 +1,6 @@
 <template>
     <layout class="layout-content">
+        {{record}}
         <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
         <div class="notes">
             <FormItem field-name="备注" placeholder="请输入备注" @update:value="onUpdateNotes"/>
