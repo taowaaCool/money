@@ -11,7 +11,6 @@
   }catch (e) {
     console.log(e);
   }
-
   export default {
     props: ['name'],
     name: 'Icon'
