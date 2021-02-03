@@ -20,8 +20,7 @@
   @Component({
     computed: {
       tagList() {
-        // return this.$store.fetchTags();
-        return []
+        return this.$store.state.tagList;
       }
     }
   })
@@ -43,8 +42,8 @@
       if(!name) {
         return window.alert('标签不能为空');
       }
-      // TODO
-      // store.createTag(name);
+
+      this.$store.commit('createTag', name);
     }
   }
 </script>
