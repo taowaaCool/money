@@ -31,30 +31,23 @@
     }
 
     created() {
-      const id  = this.$route.params.id;
+      const id = this.$route.params.id;
       this.$store.commit('setCurrentTag', id);
-      if(!this.tag) {
+      if (!this.tag) {
         this.$router.replace('/404');
       }
     }
 
     update(name: string) {
-      // TODO
-      // if (this.tag) {
-      //   store.updateTag(this.tag.id, name);
-      // }
+      if (this.tag) {
+        this.$store.commit('updateTag', {id: this.tag.id, name: name});
+      }
     }
 
     remove() {
-      // TODO
-      return
-      // if (this.tag) {
-      //   if(store.removeTag(this.tag.id)){
-      //     this.$router.back();
-      //   } else {
-      //     window.alert('删除失败');
-      //   }
-      // }
+      if (this.tag) {
+        this.$store.commit('removeTag', this.tag.id);
+      }
     }
 
     goBack() {
