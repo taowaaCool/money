@@ -20,14 +20,13 @@
 
   @Component({
     mixins: [TagHelper],
-    computed: {
-      tagList() {
-        return this.$store.state.tagList;
-      }
-    }
   })
   export default class Tags extends mixins(TagHelper) {
     selectedTags: string[] = [];
+
+    get tagList() {
+      return this.$store.state.tagList;
+    }
 
     toggle(tag: string) {
       const index = this.selectedTags.indexOf(tag);
