@@ -24,10 +24,6 @@
   })
   export default class Money extends Vue {
 
-    // recordList: RecordItem[] = recordList;
-    // TODO
-    // recordList = oldStore.recordList;
-
     record: RecordItem = {tags: [], notes: '', type: '-', amount: 0};
 
     get recordList() {
