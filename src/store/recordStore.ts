@@ -19,7 +19,7 @@ const recordStore = {
   saveRecords() {
     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.recordList));
   },
-}
+};
 
 recordStore.fetchRecords();
 

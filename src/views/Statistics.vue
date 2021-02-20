@@ -117,7 +117,8 @@
 
       type Result = { title: string, total?: number, items: RecordItem[] }[]
       const newList = clone(recordList).filter(r => r.type === this.type).sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf());
-      const result:Result = [{title: dayjs(newList[0].createdAt).format('YYYY-MM-DD'), items: [newList[0]]}];
+      if (newList.length === 0) {return [] as Result;}
+      const result: Result = [{title: dayjs(newList[0].createdAt).format('YYYY-MM-DD'), items: [newList[0]]}];
       for (let i = 1; i < newList.length; i++) {
         const current = newList[i];
         const last = result[result.length - 1];
@@ -128,8 +129,8 @@
         }
       }
       result.map(group => {
-        group.total = group.items.reduce((sum,item)=>sum + item.amount, 0);
-      })
+        group.total = group.items.reduce((sum, item) => sum + item.amount, 0);
+      });
       return result;
     }
 
@@ -137,7 +138,7 @@
       this.$store.commit('fetchRecords');
     }
 
-    type = '+';
+    type = '-';
     interval = 'day';
     recordTypeList = recordTypeList;
     intervalList = intervalList;
