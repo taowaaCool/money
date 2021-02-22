@@ -4,7 +4,7 @@
         <div v-if="groupedList.length>0">
             <ol>
                 <li v-for="(group,index) in groupedList" :key="index">
-                    <h3 class="title">{{beautify(group.title)}} <span>{{group.total}}</span></h3>
+                    <h3 class="title">{{beautify(group.title)}} <span>合计：￥{{group.total}}</span></h3>
                     <ol>
                         <li v-for="item in group.items" :key="item.id" class="record">
                             <span>{{tagString(item.tags)}}</span>
